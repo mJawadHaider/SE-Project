@@ -88,7 +88,12 @@
                         required
                       >
                         <option value="">Select</option>
-                        
+                        <?php
+                                            foreach ($countries as $country) {
+                                                $countryName = $country['name']['common'];
+                                                echo "<option value='$countryName'>$countryName</option>";
+                                            }
+                                            ?>
                       </select>
                     </div>
 
