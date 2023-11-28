@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result) {
         // Password updated successfully, you can redirect the user to a success page
         header("Location: ../Registration/forms/login.php?pass_update=1");
+        // Creating A triger to add all the previous and new information of user 
+        // who reset his password
         exit();
     } else {
         // Password update failed, you can redirect the user to a failure page or show an error message
