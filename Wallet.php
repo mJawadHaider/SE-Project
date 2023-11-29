@@ -84,7 +84,23 @@ $currency = 'pak';
                 </ul>
 
                 <ul class="navbar-nav navbar-right">
-
+<!-- Notification Icon -->
+<!-- <li class="nav-item dropdown">
+        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-icon">
+            <i class="far fa-bell"></i> <!-- Notification icon -->
+        </a>
+        <!-- Dropdown menu for notifications -->
+        <div class="dropdown-menu dropdown-menu-right">
+            <!-- Notification items go here -->
+            <a href="#" class="dropdown-item">
+                <i class="fas fa-bell mr-2"></i>Notification
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item text-danger">
+                <i class="fas fa-ban mr-2"></i>Dismiss All
+            </a>
+        </div>
+    </li> -->
 
 
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
