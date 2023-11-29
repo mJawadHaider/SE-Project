@@ -85,7 +85,7 @@ $currency = 'pak';
 
                 <ul class="navbar-nav navbar-right">
 <!-- Notification Icon -->
-<!-- <li class="nav-item dropdown">
+<li class="nav-item dropdown">
         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-icon">
             <i class="far fa-bell"></i> <!-- Notification icon -->
         </a>
@@ -100,7 +100,7 @@ $currency = 'pak';
                 <i class="fas fa-ban mr-2"></i>Dismiss All
             </a>
         </div>
-    </li> -->
+    </li>
 
 
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
