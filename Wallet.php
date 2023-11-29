@@ -121,7 +121,7 @@ $currency = 'pak';
 
 
                         <li class="nav-item ">
-                            <a href="./merchant/transactions" class="nav-link"><i
+                            <a href="./user_functions/TransectionRecords.php" class="nav-link"><i
                                     class="fas fa-exchange-alt"></i><span>Transactions</span></a>
                         </li>
 
@@ -165,7 +165,8 @@ $currency = 'pak';
                         </h1>
 
                     </div>
-                    <a href="./user_functions/sendMoney.php"><button type="button" class="btn btn-info  float-right">Send Money</button></a>
+                    <a href="./user_functions/sendMoney.php"><button type="button"
+                            class="btn btn-info  float-right">Send Money</button></a>
                 </section>
                 <div style="margin-top: 20px; text-align: center;">
                     <h1><?php echo $balance .' '. $currency; ?></h1>
@@ -199,7 +200,7 @@ $currency = 'pak';
                                     <h4>Pakistani Currency</h4>
                                 </div>
                                 <div class="card-body">
-                                <?php echo $balance  ?> PKR
+                                    <?php echo $balance  ?> PKR
                                 </div>
                             </div>
                         </div>
@@ -297,76 +298,72 @@ $currency = 'pak';
                 </div>
 
                 <div class="row row-deck row-cards">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <!-- <h4>Recent Transactions</h4> -->
-                <!-- Button to toggle the transactions table -->
-                <button class="btn btn-primary btn-sm float-right" data-toggle="collapse" href="#transactionsTable"><i class="fas fa-chevron-down ml-2"></i>All Transections</button>
-            </div>
-            <div class="table-responsive collapse" id="transactionsTable">
-    <table class="table card-table table-vcenter text-nowrap datatable">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Transaction ID</th>
-                <th>Transection</th>
-                <th>Remark</th>
-                <th>Amount</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                $transferQuery = "SELECT * FROM transfers";
-                $result = mysqli_query($conn, $transferQuery);
-                
-                $getSenderwalletId = "SELECT * FROM wallets WHERE user_id = {$userData['user_id']}";
-                $senderWallet = mysqli_query($conn, $getSenderwalletId);
-                if (mysqli_num_rows($senderWallet) > 0){
-                    $senderRow = mysqli_fetch_assoc($senderWallet);
-                }
-                if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Determine if the logged-in user is the sender or receiver
-                        $isSender = $row['sender_wallet_id'] == $senderRow['wallet_id'];
-                        
-                        // Set the Transection column based on sender or receiver
-                        $transectionColumn = $isSender ? "Sent to: " . $row['receiver_wallet_id'] : "Received from: " . $row['sender_wallet_id'];
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- <h4>Recent Transactions</h4> -->
+                                <!-- Button to toggle the transactions table -->
+                                <button class="btn btn-primary btn-sm float-right" data-toggle="collapse"
+                                    href="#transactionsTable"><i class="fas fa-chevron-down ml-2"></i>All
+                                    Transections</button>
+                            </div>
+                            <div class="table-responsive collapse" id="transactionsTable">
+                                <table class="table card-table table-vcenter text-nowrap datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Transaction ID</th>
+                                            <th>Transection</th>
+                                            <th>Remark</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                    <?php
+                                            $transferQuery = "SELECT * FROM transfers";
+                                            $result = mysqli_query($conn, $transferQuery);
 
-                        // Set the Amount column color based on sender or receiver
-                        $amountColor = $isSender ? "text-danger" : "text-success";
+                                            $getSenderwalletId = "SELECT * FROM wallets WHERE user_id = {$userData['user_id']}";
+                                            $senderWallet = mysqli_query($conn, $getSenderwalletId);
+                                            if (mysqli_num_rows($senderWallet) > 0){
+                                                $senderRow = mysqli_fetch_assoc($senderWallet);
+                                            }
+                                            if ($result) {
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    // Determine if the logged-in user is the sender or receiver
+                                                    $isSender = $row['sender_wallet_id'] == $senderRow['wallet_id'];
 
-                        echo '<tr>
-                            <td data-label="Date">' . $row['created_at'] . '</td>
-                            <td data-label="Transaction ID">' . $row['transfer_id'] . '</td>
-                            <td data-label="Transection">' . $transectionColumn . '</td>
-                            <td data-label="Remark">
-                                <span class="badge badge-dark">' . $row['status'] . '</span>
-                            </td>
-                            <td data-label="Amount">
-                                <span class="' . $amountColor . '">$' . $row['amount'] . '</span>
-                            </td>
-                            <td data-label="Details" class="text-end">
-                                <button class="btn btn-primary btn-sm details" 
-                                    data-data="' . htmlspecialchars(json_encode($row)) . '">Details
-                                </button>
-                            </td>
-                        </tr>';
-                    }
-                }
-            ?>
-        </tbody>
-    </table>
-</div>
+                                                    // Set the Transection column based on sender or receiver
+                                                    $transectionColumn = $isSender ? "Sent to: " . $row['receiver_wallet_id'] : "Received from: " . $row['sender_wallet_id'];
+                                                
+                                                    // Set the Amount column color based on sender or receiver
+                                                    $amountColor = $isSender ? "text-danger" : "text-success";
+                                                
+                                                    echo '<tr>
+                                                        <td data-label="Date">' . $row['created_at'] . '</td>
+                                                        <td data-label="Transaction ID">' . $row['transfer_id'] . '</td>
+                                                        <td data-label="Transection">' . $transectionColumn . '</td>
+                                                        <td data-label="Remark">
+                                                            <span class="badge badge-dark">' . $row['status'] . '</span>
+                                                        </td>
+                                                        <td data-label="Amount">
+                                                            <span class="' . $amountColor . '">$' . $row['amount'] . '</span>
+                                                        </td>
+                                                    </tr>';
+                                                }
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
 
-        </div>
-    </div>
-</div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Include Bootstrap and jQuery scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+                <!-- Include Bootstrap and jQuery scripts -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
