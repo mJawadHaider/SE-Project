@@ -137,7 +137,7 @@ $currency = 'pak';
 
 
                         <li class="nav-item ">
-                            <a href="./merchant/transactions" class="nav-link"><i
+                            <a href="./API/TransectionRecords.php" class="nav-link"><i
                                     class="fas fa-exchange-alt"></i><span>Transactions</span></a>
                         </li>
 
