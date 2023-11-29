@@ -74,32 +74,36 @@ if (isset($_GET['pass_update']) && $_GET['pass_update'] == 1) {
                                     <input type="hidden" name="_token" value="Iy0FRDBOIkaUKE25aJqtOAIIZbsRA1D2wpZGbg4r">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input id="email" type="email" class="form-control  " name="email" tabindex="1"
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
                                             value="merchant@gmail.com" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password</label>
-                                        <input id="password" type="password" class="form-control  " value="1234"
+                                        <input id="password" type="password" class="form-control" value="1234"
                                             name="password" tabindex="2">
-
                                     </div>
 
-
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="rememberMe"
+                                                name="rememberMe">
+                                            <label class="custom-control-label" for="rememberMe">Remember Me</label>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group text-right">
-                                        <a href="forgot-password.php" class="float-left mt-3">
-                                            Forgot Password?
-                                        </a>
+                                        <a href="forgot-password.php" class="float-left mt-3">Forgot Password?</a>
                                         <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right"
-                                            tabindex="4">
-                                            Login </button>
+                                            tabindex="4">Login</button>
                                     </div>
+
                                     <div class="form-group text-center">
-                                        <a href="../forms/register.php" class="float-left mt-3">
-                                            Don't have an account? </a>
+                                        <a href="../forms/register.php" class="float-left mt-3">Don't have an
+                                            account?</a>
                                     </div>
                                 </form>
+
                             </div>
                         </div>
 
