@@ -111,10 +111,10 @@ $currency = 'pak';
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="./merchant/profile-setting" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile setting </a>
-                            <a href="./merchant/change-password" class="dropdown-item has-icon">
+                            <a href="./Registration/forms/forgot-password.php" class="dropdown-item has-icon">
                                 <i class="fas fa-key"></i> Change Password </a>
                             <div class="dropdown-divider"></div>
-                            <a href="./merchant/logout" class="dropdown-item has-icon text-danger">
+                            <a href="./user_functions/logout.php" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout </a>
                         </div>
                     </li>
